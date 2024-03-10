@@ -170,13 +170,13 @@ setTimeout(function(){
                     backgroundImage: el_photo.style.backgroundImage
                 },
                 {
-                    backgroundImage: "url('/img/content_page/web"+(i+1)+".png')"
+                    backgroundImage: "url('./../img/content_page/web"+(i+1)+".png')"
                 }
             ],{
                 duration: 1000,
                 iterations: 1
             });
-            el_photo.style.backgroundImage = "url('/img/content_page/web"+(i+1)+".png')";
+            el_photo.style.backgroundImage = "url('./../img/content_page/web"+(i+1)+".png')";
 
             let el_close = document.querySelector(".open__hidden-text");
             el_close.animate([
