@@ -24,14 +24,14 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
     width: 0px;
     height: 0px;
 
-    background-image: url("./../img/content_page/2.png");
+    background-image: url("./../img/content_page/web2.png");
 }
 .for_img_hidden_2{
     display: none;
     width: 0px;
     height: 0px;
 
-    background-image: url("./../img/content_page/3.png");
+    background-image: url("./../img/content_page/web3.png");
 }
 
 .main-window{
