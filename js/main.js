@@ -1,3 +1,48 @@
+function setText(elem, text, speed) {
+    // Обращаемся к элементу
+    var e = document.querySelector(elem);
+  
+    // Устанавливаем начальную позицию
+    var i = 0,
+    // Создаём интервал
+        int = setInterval(function() {
+          // Если позиция равна количеству символов в тексте, то удаляем интервал
+          if(i == text.length){
+            clearInterval(int);
+          };
+          // Устанавливаем значение для textarea
+          e.innerHTML = text.substr(0,i); // Текст от начала до текущей позиции
+          // Прибавляем +1 к позиции
+          i++;
+        }, speed);
+        
+    // Для фокуса
+    // e.focus();
+    // e.onblur = function() { clearInterval(int) };
+};
+function deleteText(elem, speed) {
+    // Обращаемся к элементу
+    var e = document.querySelector(elem);
+  
+    // Устанавливаем начальную позицию
+    var i = e.innerHTML.length,
+    // Создаём интервал
+        int = setInterval(function() {
+          // Если позиция равна количеству символов в тексте, то удаляем интервал
+          if(i <= 0){
+            clearInterval(int);
+          };
+          // Устанавливаем значение для textarea
+          e.innerHTML = e.innerHTML.substr(0,i); // Текст от начала до текущей позиции
+          // Прибавляем +1 к позиции
+          i--;
+        }, speed);
+        
+    // Для фокуса
+    // e.focus();
+    // e.onblur = function() { clearInterval(int) };
+};
+
 window.addEventListener('load',function(){
 setTimeout(function(){
     // Выравниваем по вертикали везитку
@@ -113,6 +158,146 @@ setTimeout(function(){
         //     this.style.backgroundColor = currentColor;
         // });
     }
+
+    // ============================================================================================
+    let arr_plus = document.querySelectorAll(".plus__hidden-text");
+    let arr_hidden = document.querySelectorAll(".hidden-text");
+    for(let i = 0; i < arr_plus.length; i++){
+        arr_plus[i].onclick = () =>{
+            let el_photo = document.querySelector(".photo_work");
+            el_photo.animate([
+                {
+                    backgroundImage: el_photo.style.backgroundImage
+                },
+                {
+                    backgroundImage: "url('/img/content_page/"+(i+1)+".png')"
+                }
+            ],{
+                duration: 1000,
+                iterations: 1
+            });
+            el_photo.style.backgroundImage = "url('/img/content_page/"+(i+1)+".png')";
+
+            let el_close = document.querySelector(".open__hidden-text");
+            el_close.animate([
+                {
+                    maxHeight: el_close.clientHeight+"px"
+                },
+                {
+                    maxHeight: "55px"
+                }
+            ],{
+                duration: 1000,
+                iterations: 1
+            });
+            el_close.classList.remove("open__hidden-text");
+            let el_close_plus = el_close.querySelector(".plus_2");
+            el_close_plus.animate([
+                {
+                    transform: "rotate(0deg)"
+                },
+                {
+                    transform: "rotate(90deg)"
+                }
+            ],{
+                duration: 1000,
+                iterations: 1
+            });
+            el_close_plus.style.transform = "rotate(90deg)";
+
+            let el_plus = arr_plus[i].querySelector(".plus_2");
+            el_plus.animate([
+                {
+                    transform: "rotate(90deg)"
+                },
+                {
+                    transform: "rotate(0deg)"
+                }
+            ],{
+                duration: 1000,
+                iterations: 1
+            });
+            el_plus.style.transform = "rotate(0deg)";
+
+            arr_hidden[i].animate([
+                {
+                    maxHeight: "55px"
+                },
+                {
+                    maxHeight: 55+arr_hidden[i].querySelector(".body__hidden-text").clientHeight+"px"
+                }
+            ],{
+                duration: 1000,
+                iterations: 1
+            });
+            arr_hidden[i].classList.add("open__hidden-text")
+        }
+    }
+
+    // ============================================================================================
+    let arr_words = [
+        "Привет!",
+        "Hello!",
+        "嗨！",
+        "안녕!",
+        "Բարեւ ձեզ!",
+        "Hæ!",
+        "Здраво!",
+        "Olá!",
+        "ഹായ്!",
+        "हाय!",
+        "नमस्कार!",
+        "Ciao!",
+        "ಹಾಯ್!",
+        "Сәләм!",
+        "Helo!",
+        "こんにちは!"
+    ];
+    let el_hello = document.querySelector(".body__chat-hello").querySelector("p");
+    let el_cursor = document.querySelector(".cursor");
+    el_cursor.animate([
+        {
+            opacity: 0
+        },
+        {
+            offset: 0.5,
+            opacity: 1
+        },
+        {
+            opacity: 0
+        }
+    ],{
+        duration: 600,
+        iterations: Infinity
+    });
+
+    // let main_time = 3000;
+    let main_time = 3000;
+    for(let i = 0; i < arr_words.length; i++){
+        let time1 = (300*arr_words[i].length)*i;
+        let time2 = (300*arr_words[i].length)*(i+1);
+        setTimeout(setText, main_time, ".body__chat-hello p", arr_words[i], 300);
+        main_time += 4000;
+        setTimeout(deleteText, main_time, ".body__chat-hello p", 300);
+        main_time += 4000;
+    }
+    setInterval(function(){
+        let main_time = 3000;
+        for(let i = 0; i < arr_words.length; i++){
+            let time1 = (300*arr_words[i].length)*i;
+            let time2 = (300*arr_words[i].length)*(i+1);
+            setTimeout(setText, main_time, ".body__chat-hello p", arr_words[i], 300);
+            main_time += 4000;
+            setTimeout(deleteText, main_time, ".body__chat-hello p", 300);
+            main_time += 4000;
+        }
+    },64000);
+
+    //================================================================================================================================
+    setInterval(function() {
+        var date = new Date();
+        document.getElementById("time").innerHTML = (date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds());
+    }, 1000);
 }, 0)
 });
 

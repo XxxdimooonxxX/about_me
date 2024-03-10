@@ -9,7 +9,7 @@ input,button,textarea{font-family:inherit;}
 input::-ms-clear{display: none;}
 button{cursor: pointer;}
 button::-moz-focus-inner{padding:0;border:0;}
-a,a:visited{text-decoration: none;}
+a,a:visited{color: white ;text-decoration: none;}
 a:hover{text-decoration: none;}
 ul li{list-style: none;}
 img{vertical-align: top;}
@@ -45,7 +45,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 
 .content__main-window {
     width: 1025px;
-    height: 610px;
+    height: 605px;
     overflow: hidden;
 
     position: relative;
@@ -79,6 +79,20 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
     left: 1025px;
 
     background-image: url("/img/background_page/3.png");
+    background-size: cover;
+}
+.page_3{
+    top: 0px;
+    left: 2050px;
+
+    background-image: url("/img/background_page/2.png");
+    background-size: cover;
+}
+.page_4{
+    top: 0px;
+    left: 3075px;
+
+    background-image: url("/img/background_page/4.png");
     background-size: cover;
 }
 .page{    
@@ -120,6 +134,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 .content__main-window .content__body .content__page .page__left.photo-wrapper {
     position: relative;
     max-width: 335px;
+    min-width: 335px;
     padding: 15px;
 }
 .content__main-window .content__body .content__page .page__left.photo-wrapper .r-top-decoration {
@@ -150,15 +165,84 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 .my_photo{
     width: 100%;
 }
+.photo_work{
+    width: 100%;
+    height: 100%;
+
+    background-image: url("/img/content_page/1.png");
+    background-size: cover;
+}
+.page_3 .photo_work{
+    background-image: url("/img/content_page/skils.jpeg");
+}
+.page_4 .photo_work{
+    background-image: url("/img/content_page/about_me.png");
+}
 .content__main-window .content__body .content__page .page__right.text-wrapper {
     width: 560px;
 }
-.content__main-window .content__body .content__page .page__right.text-wrapper .chat-hello {}
+.content__main-window .content__body .content__page .page__right.text-wrapper .chat-hello {
+    position: relative;
+    display: inline-block;
+    min-width: 65px;
+    height: 36px;
+
+    background-color: #FFF;
+    color: #000000;
+
+    margin-bottom: 25px;
+}
+.body__chat-hello{
+    /* position: relative;
+    min-width: 65px;
+    height: 36px;
+
+    display: inline-block; */
+
+    /* background-color: #FFF;
+    color: #000000; */
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    text-wrap: nowrap;
+    padding: 12px 10px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    /* padding: 12px 10px; */
+}
+.body__chat-hello p{
+    font-size: 14px;
+    line-height:1;
+}
+.cursor{
+    width: 14px;
+    margin-bottom: -1px;
+    height: 2px;
+    background: black;
+    opacity: 0;
+    display: inline-block;
+    margin-top: 14px;
+    margin-left: 5px;
+}
+.body__chat-hello::before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 36px;
+    left: 20px;
+    width: 0;
+	height: 0;
+	border-top: 20px solid white; 
+	border-right: 20px solid transparent;			
+}
 .content__main-window .content__body .content__page .page__right.text-wrapper .fio {
     font-size: 32px;
     margin-bottom: 30px;
 }
 .content__main-window .content__body .content__page .page__right.text-wrapper .description-proffion {
+    line-height: 1.2;
     text-wrap: wrap;
     font-size: 16px;
     padding-bottom: 10px;
@@ -166,7 +250,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
     border-bottom: 1px solid white;
 }
 .content__main-window .content__body .content__page .page__right.text-wrapper .info {
-    margin-bottom: 100px;
+    margin-bottom: 62px;
 }
 .content__main-window .content__body .content__page .page__right.text-wrapper tbody {}
 .content__main-window .content__body .content__page .page__right.text-wrapper tbody tr {
@@ -182,13 +266,119 @@ td{
     width: 220px;
 }
 .content__main-window .content__body .content__page .page__right.text-wrapper tbody .table-text {}
-
+.table-text a{
+    text-decoration: underline;
+}
 .content__main-window .content__body .content__page .page__right.text-wrapper .btn-send-mail {
+    /* user-select: none;
+    padding: 10px 19px;
+    background-color: white;
+    color: black;
+
+    display: inline-block; */
+}
+.btn-send-mail a{
+    user-select: none;
     padding: 10px 19px;
     background-color: white;
     color: black;
 
     display: inline-block;
+}
+
+/* 2 слайд */
+.title_page{
+    font-size: 46px;
+    margin-bottom: 30px;
+}
+.hidden-text{
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    padding: 10px;
+    max-height: 55px;
+    overflow: hidden;
+
+    margin-bottom: 20px;
+}
+.open__hidden-text{
+    max-height: none;
+}
+.title__hidden-text {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+    padding-bottom: 11px;
+    border-bottom: 1px solid white;
+}
+.title__hidden-text .title-text__hidden-text {}
+.title__hidden-text .plus__hidden-text {
+    position: relative;
+    display: block;
+
+    width: 30px;
+    height: 30px;
+    border: 1px solid white;
+    border-radius: 5px;
+    user-select: none;
+}
+.plus_1{
+    width: 15px;
+    height: 2px;
+
+    position: absolute;
+    display: block;
+
+    background-color: #FFF;
+
+    top: 14px;
+    left: 7px;
+}
+.plus_2{
+    width: 15px;
+    height: 2px;
+
+    position: absolute;
+    display: block;
+
+    background-color: #FFF;
+
+    top: 14px;
+    left: 7px;
+
+    transform: rotate(90deg);
+}
+.open__hidden-text .plus_2{
+    transform: rotate(0deg);
+}
+.body__hidden-text {}
+.hidden-text {}
+.hidden-text .title__hidden-text {
+    font-size: 32px;
+}
+.hidden-text .title__hidden-text .title-text__hidden-text {}
+.hidden-text .title__hidden-text .plus__hidden-text {}
+.hidden-text .body__hidden-text {
+    padding-top: 8px;
+    font-size: 16px;
+    text-wrap: wrap;
+    line-height: 28px;
+}
+
+p{
+    text-wrap: wrap;
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: justify;
+
+    padding-bottom: 5px;
+}
+span{
+    font-size: 18px;
+
+    text-decoration: underline;
+    font-weight: 700;
 }
 
 /* ============== FOOTER ============== */
@@ -257,6 +447,7 @@ td{
     min-width: 380px;
 }
 .content__main-window .content__footer .buttons-navigation .btn-nav {
+    cursor: pointer;
     display: inline-block;
     position: relative;
 
