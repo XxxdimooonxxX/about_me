@@ -26,7 +26,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
     position: relative;
     display: block;
 
-    background-image: url("https://raw.githubusercontent.com/XxxdimooonxxX/about_me/img/background_window.jpg");
+    background-image: url("./img/background_window.jpg");
     background-size: cover;
 }
 
@@ -71,28 +71,28 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
     top: 0px;
     left: 0px;
 
-    background-image: url("https://raw.githubusercontent.com/XxxdimooonxxX/about_me/img/background_page/1.png");
+    background-image: url("./img/background_page/1.png");
     background-size: cover;
 }
 .page_2{
     top: 0px;
     left: 1025px;
 
-    background-image: url("https://raw.githubusercontent.com/XxxdimooonxxX/about_me/img/background_page/3.png");
+    background-image: url("./img/background_page/3.png");
     background-size: cover;
 }
 .page_3{
     top: 0px;
     left: 2050px;
 
-    background-image: url("https://raw.githubusercontent.com/XxxdimooonxxX/about_me/img/background_page/2.png");
+    background-image: url("./img/background_page/2.png");
     background-size: cover;
 }
 .page_4{
     top: 0px;
     left: 3075px;
 
-    background-image: url("https://raw.githubusercontent.com/XxxdimooonxxX/about_me/img/background_page/4.png");
+    background-image: url("./img/background_page/4.png");
     background-size: cover;
 }
 .page{    
@@ -169,14 +169,14 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
     width: 100%;
     height: 100%;
 
-    background-image: url("https://raw.githubusercontent.com/XxxdimooonxxX/about_me/img/content_page/1.png");
+    background-image: url("./img/content_page/1.png");
     background-size: cover;
 }
 .page_3 .photo_work{
-    background-image: url("https://raw.githubusercontent.com/XxxdimooonxxX/about_me/img/content_page/skils.jpeg");
+    background-image: url("./img/content_page/skils.jpeg");
 }
 .page_4 .photo_work{
-    background-image: url("https://raw.githubusercontent.com/XxxdimooonxxX/about_me/img/content_page/about_me.png");
+    background-image: url("./img/content_page/about_me.png");
 }
 .content__main-window .content__body .content__page .page__right.text-wrapper {
     width: 560px;
