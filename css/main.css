@@ -70,10 +70,16 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 .page_1{
     top: 0px;
     left: 0px;
+
+    background-image: url("/img/background_page/1.png");
+    background-size: cover;
 }
 .page_2{
     top: 0px;
     left: 1025px;
+
+    background-image: url("/img/background_page/3.png");
+    background-size: cover;
 }
 .page{    
     display: inline-block;
@@ -92,7 +98,16 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
     height: 100%;
 }
 .content__main-window .content__body .content__page {}
-.content__main-window .content__body .content__page .background-filter__background-page {}
+.content__main-window .content__body .content__page .background-filter__background-page {
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.9);
+
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
 .content__main-window .content__body .content__page .page-wrapper {
     position: relative;
     width: 100%;

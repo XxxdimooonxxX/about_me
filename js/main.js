@@ -35,12 +35,6 @@ setTimeout(function(){
         }
     }
 
-    // let svgDoc = a.contentDocument;
-    // // get the inner element by id
-    // var delta = svgDoc.querySelector("svg");
-
-    // delta.style.fill="black";
-
     for(let i = 0; i < all_nav_obj.length; i++){
         all_nav_obj[i].style.top = (btn_nav[i].clientHeight - all_nav_obj[i].clientHeight)/2 + "px";
 
@@ -96,10 +90,19 @@ setTimeout(function(){
                 el_svg.style.stroke="none";
             }
 
-            // let move_px = 1025;
             let body_page = document.querySelector(".content__body");
+            body_page.animate([
+                {
+                    left: body_page.style.left,
+                },
+                {
+                    left: "-"+(1025*i+"px"),
+                }
+            ],{
+                duration: 2000,
+                iterations: 1
+            });
             body_page.style.left = "-"+(1025*i+"px");
-            
         };
 
         // hover[i].addEventListener("mouseover", function(){
@@ -109,7 +112,6 @@ setTimeout(function(){
         // hover[i].addEventListener("mouseout", function(){
         //     this.style.backgroundColor = currentColor;
         // });
-
     }
 }, 0)
 });
