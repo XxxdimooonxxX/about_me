@@ -1,0 +1,6 @@
+<?xml-stylesheet type="text/css" href="../../css/social.css"?>
+
+<svg id="btn_1" width="32" height="42" viewBox="0 0 32 42" xmlns="http://www.w3.org/2000/svg">
+<path d="M22 4L28 4V4C29.1046 4 30 4.89543 30 6V6L30 38V38C30 39.1046 29.1046 40 28 40L4 40V40C2.89543 40 2 39.1046 2 38L2 6V6C2 4.89543 2.89543 4 4 4L10 4" stroke="inhert" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="22" y="2" width="4" height="12" rx="1" transform="rotate(90 22 2)" stroke="inhert" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

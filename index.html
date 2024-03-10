@@ -4,8 +4,165 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/social.css">
 </head>
 <body>
-    Hello
+    <!-- "Главный экран" -->
+    <div class="main-window">
+        <!-- для "фильтра фона" -->
+        <div class="background__main-window"></div>
+
+        <!-- визитка -->
+        <div class="content__main-window">
+            <!-- главная часть визитки -->
+            <div class="content__body">
+                <!-- 1 страница -->
+                <div class="content__page page page_1">
+                    <div class="wrapper__content-pages">
+                        <!-- <img src="" alt="" class="background-page"> -->
+                        <div class="background-filter__background-page"></div>
+
+                        <div class="page-wrapper">
+                            <!-- Фотка -->
+                            <div class="page__left photo-wrapper">
+                                <div class="r-top-decoration"></div>
+                                <div class="l-bottom-decoration"></div>
+                                <img class="my_photo" src="/img/my_photo.jpg" alt="">
+                            </div>
+
+                            <!-- Текст -->
+                            <div class="page__right text-wrapper">
+                                <!-- изменяющиеся приветственное сообщение -->
+                                <div class="chat-hello"></div>
+
+                                <!--  -->
+                                <div class="fio">Кошелев Дмитрий Александрович</div>
+                                <div class="description-proffion">Web разработчик и дизайнер, разработчик брендов, графический артист, программист, гений упаковок, и businessman</div>
+
+                                <!-- таблица -->
+                                <table class="info">
+                                    <tr>
+                                        <td class="table-title">АДРЕС</td>
+                                        <td class="table-text">Россия, Тамбовская область, Рассказово</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="table-title">ВРЕМЯ</td>
+                                        <td class="table-text">Вторник, март 9, 2024  6:40:28</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="table-title">ПОЧТА</td>
+                                        <td class="table-text">dima2017.koshelev@yandex.ru</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="table-title">ТЕЛЕФОН</td>
+                                        <td class="table-text">Данные отсутствуют</td>
+                                    </tr>
+                                </table>
+
+                                <!-- Кнопка отправить письмо -->
+                                <div class="btn-send-mail">Отправить письмо</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 2 страница -->
+                <div class="content__page page page_2">
+                    <div class="wrapper__content-pages">
+                        <!-- <img src="" alt="" class="background-page"> -->
+                        <div class="background-filter__background-page"></div>
+
+                        <div class="page-wrapper">
+                            <!-- Фотка -->
+                            <div class="page__left photo-wrapper">
+                                <div class="r-top-decoration"></div>
+                                <div class="l-bottom-decoration"></div>
+                                <img class="my_photo" src="/img/background_window.jpg" alt="">
+                            </div>
+
+                            <!-- Текст -->
+                            <div class="page__right text-wrapper">
+                                <div class="fio">Мои работы</div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- нижняя часть визитки -->
+            <div class="content__footer">
+                <!-- ссылки -->
+                <div class="social-link">
+                    <div class="social-link__wrapper">
+                        <div class="wrapper-link">
+                            <a href="#"></a>
+                            <object data="/img/social/figma.svg" type="image/svg+xml"></object>
+                        </div>
+                        <div class="wrapper-link">
+                            <a href="#"></a>
+                            <object data="/img/social/ok.svg" type="image/svg+xml"></object>
+                        </div>
+                        <div class="wrapper-link">
+                            <a href="#"></a>
+                            <object data="/img/social/trello.svg" type="image/svg+xml"></object>
+                        </div>
+                        <div class="wrapper-link">
+                            <a href="#"></a>
+                            <object data="/img/social/vk.svg" type="image/svg+xml"></object>
+                        </div>
+                        <div class="wrapper-link">
+                            <a href="#"></a>
+                            <object data="/img/social/youtube.svg" type="image/svg+xml"></object>
+                        </div>
+                        <div class="wrapper-link">
+                            <a href="#"></a>
+                            <object data="/img/social/steam.svg" type="image/svg+xml"></object>
+                        </div>
+                        <div class="wrapper-link">
+                            <a href="#"></a>
+                            <object data="/img/social/whatsapp.svg" type="image/svg+xml"></object>
+                        </div>
+                        <div class="wrapper-link">
+                            <a href="#"></a>
+                            <object data="/img/social/github.svg" type="image/svg+xml"></object>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- кнопки навигации -->
+                <div class="buttons-navigation">
+                    <div class="btn-nav selected">
+                        <div class="btn-nav__wrapper">
+                            <!-- <object data="/img/nav/1.svg" type="image/svg+xml"></object> -->
+                        </div>
+                        <object id="btn_1" data="/img/nav/1.svg" type="image/svg+xml"></object>
+                    </div>
+                    <div class="btn-nav">
+                        <div class="btn-nav__wrapper">
+                            <!-- <object data="/img/nav/1.svg" type="image/svg+xml"></object> -->
+                        </div>
+                        <object id="btn_2" data="/img/nav/2.svg" type="image/svg+xml"></object>
+                    </div>
+                    <div class="btn-nav">
+                        <div class="btn-nav__wrapper">
+                            <!-- <object data="/img/nav/1.svg" type="image/svg+xml"></object> -->
+                        </div>
+                        <object id="btn_3" data="/img/nav/3.svg" type="image/svg+xml"></object>
+                    </div>
+                    <div class="btn-nav">
+                        <div class="btn-nav__wrapper">
+                            <!-- <object data="/img/nav/1.svg" type="image/svg+xml"></object> -->
+                        </div>
+                        <object id="btn_4" data="/img/nav/4.svg" type="image/svg+xml"></object>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+<script src="/js/main.js"></script>
 </html>
