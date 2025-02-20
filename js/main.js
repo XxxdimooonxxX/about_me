@@ -46,9 +46,9 @@ function deleteText(elem, speed) {
 window.addEventListener('load',function(){
 setTimeout(function(){
     // Выравниваем по вертикали везитку
-    let main_el = document.querySelector(".content__main-window");
-    main_el.style.top = (document.body.clientHeight - main_el.clientHeight)/2 + "px";
-    main_el.style.left = (document.body.clientWidth - main_el.clientWidth)/2 + "px";
+    // let main_el = document.querySelector(".content__main-window");
+    // main_el.style.top = (document.body.clientHeight - main_el.clientHeight)/2 + "px";
+    // main_el.style.left = (document.body.clientWidth - main_el.clientWidth)/2 + "px";
 
     // обработка и изменение стилей кнопок подвала
     let all_nav_obj = document.querySelectorAll(".buttons-navigation object");
@@ -295,8 +295,13 @@ setTimeout(function(){
 
     //================================================================================================================================
     setInterval(function() {
+        var date = new Date(2014,11,31,12,30,0);
+        var options = {year: 'numeric', month: 'long', day: 'numeric', weekday: 'long', timezone: 'UTC', hour: 'numeric', minute: 'numeric', second: 'numeric'};
+        // console.log(date.toLocaleString("ru", options));  // среда, 31 декабря 2014 г. н.э. 12:30:00 [3](https://learn.javascript.ru/datetime)
+
         var date = new Date();
-        document.getElementById("time").innerHTML = (date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds());
+        // document.getElementById("time").innerHTML = (date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds());
+        document.getElementById("time").innerHTML = date.toLocaleString("ru", options).replace(" г. в ", ', ');
     }, 1000);
 }, 0)
 });

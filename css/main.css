@@ -43,7 +43,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
     height: 100%;
 
     position: relative;
-    display: block;
+    /* display: block; */
 
     background-image: url("./../img/background_window.jpg");
     background-size: cover;
@@ -312,7 +312,7 @@ td{
     letter-spacing: 2px;
     font-weight: 900;
 
-    width: 220px;
+    min-width: 200px;
 }
 .content__main-window .content__body .content__page .page__right.text-wrapper tbody .table-text {}
 .table-text a{
