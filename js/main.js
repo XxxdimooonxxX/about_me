@@ -302,8 +302,8 @@ setTimeout(function(){
 });
 
 // меняем даже когда меняеться размер экрана браузера
-window.addEventListener('resize', function(event) {
-    let main_el = document.querySelector(".content__main-window");
-    main_el.style.top = (document.body.clientHeight - main_el.clientHeight)/2 + "px";
-    main_el.style.left = (document.body.clientWidth - main_el.clientWidth)/2 + "px";
-}, true);
+// window.addEventListener('resize', function(event) {
+//     let main_el = document.querySelector(".content__main-window");
+//     main_el.style.top = (document.body.clientHeight - main_el.clientHeight)/2 + "px";
+//     main_el.style.left = (document.body.clientWidth - main_el.clientWidth)/2 + "px";
+// }, true);

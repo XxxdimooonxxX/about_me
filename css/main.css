@@ -35,6 +35,10 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 }
 
 .main-window{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     width: 100%;
     height: 100%;
 
@@ -136,6 +140,34 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
     position: absolute;
     top: 0px;
     left: 0px;
+}
+.page3{
+    backdrop-filter: blur(8px);
+    /* background-color: rgba(0, 0, 0, 0.95) !important; */
+}
+.display_flex{
+    display: flex;
+    flex-direction: column;
+}
+.custom_scroll{
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.custom_scroll::-webkit-scrollbar {
+    width: 10px;               
+    /* ширина scrollbar */
+}
+.custom_scroll::-webkit-scrollbar-track {
+    /* background: orange;         */
+    /* цвет дорожки */
+}
+.custom_scroll::-webkit-scrollbar-thumb {
+    background-color: #FFFFFF66;    
+    /* цвет плашки */
+    border-radius: 20px;       
+    /* закругления плашки */
+    /* border: 3px solid orange;   */
+    /* padding вокруг плашки */
 }
 .content__main-window .content__body .content__page .page-wrapper {
     position: relative;
@@ -254,15 +286,17 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
 }
 .content__main-window .content__body .content__page .page__right.text-wrapper .fio {
     font-size: 32px;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 .content__main-window .content__body .content__page .page__right.text-wrapper .description-proffion {
+    color: #FFFFFFAA;
+
     line-height: 1.2;
     text-wrap: wrap;
     font-size: 16px;
     padding-bottom: 10px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid white;
+    margin-bottom: 36px;
+    /* border-bottom: 1px solid white; */
 }
 .content__main-window .content__body .content__page .page__right.text-wrapper .info {
     margin-bottom: 62px;
@@ -385,14 +419,17 @@ p{
     text-wrap: wrap;
     font-size: 18px;
     line-height: 1.5;
-    text-align: justify;
+    /* text-align: justify; */
 
     padding-bottom: 5px;
 }
+i{
+    color: #FFFFFF99;
+}
 span{
-    font-size: 18px;
+    font-size: 28px;
 
-    text-decoration: underline;
+    /* text-decoration: underline; */
     font-weight: 700;
 }
 
