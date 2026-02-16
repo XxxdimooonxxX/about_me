@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  web:
+    build:
+      context: .
+    volumes:
+      - ./:/usr/src/app
+    expose:
+      - "8000"
+
+  nginx:
+    image: nginx:stable
+    depends_on:
+      - web
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
