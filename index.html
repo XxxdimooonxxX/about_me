@@ -1,282 +1,118 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./css/social.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+  <meta name="description" content="Дмитрий Кошелев. Разработка веб-приложений, интерфейсы и немного дизайна.">
+  <meta name="theme-color" content="#14191b">
+  <title>Дмитрий Кошелев — визитка</title>
+  <link rel="icon" href="./img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./css/main.css">
+  <script src="./js/main.js" defer></script>
 </head>
 <body>
-    <div class="for_img_hidden_1"></div>
-    <div class="for_img_hidden_2"></div>
-    <!-- "Главный экран" -->
-    <div class="main-window">
-        <!-- для "фильтра фона" -->
-        <div class="background__main-window"></div>
-
-        <!-- визитка -->
-        <div class="content__main-window">
-            <!-- главная часть визитки -->
-            <div class="content__body" style="left: 0px;">
-                <!-- 1 страница -->
-                <div class="content__page page page_1">
-                    <div class="wrapper__content-pages">
-                        <!-- <img src="" alt="" class="background-page"> -->
-                        <div class="background-filter__background-page"></div>
-
-                        <div class="page-wrapper">
-                            <!-- Фотка -->
-                            <div class="page__left photo-wrapper">
-                                <div class="r-top-decoration"></div>
-                                <div class="l-bottom-decoration"></div>
-                                <img class="my_photo" src="./img/my_photo.jpg" alt="">
-                            </div>
-
-                            <!-- Текст -->
-                            <div class="page__right text-wrapper">
-                                <!-- изменяющиеся приветственное сообщение -->
-                                <div class="chat-hello">
-                                    <div class="body__chat-hello"><p class="delete_p"></p><span class="cursor"></span></div>
-                                </div>
-
-                                <!--  -->
-                                <div class="fio">Кошелев Дмитрий Александрович</div>
-                                <div class="description-proffion">"Fullstack"-Web разработчик, и немного "дизайнер"</div>
-
-                                <!-- таблица -->
-                                <table class="info">
-                                    <tr>
-                                        <td class="table-title">АДРЕС</td>
-                                        <td class="table-text">Россия, Тамбовская область, Рассказово</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table-title">ВРЕМЯ</td>
-                                        <td class="table-text"><div id="time" style="display: inline;" class="time_table"></div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table-title">ПОЧТА</td>
-                                        <td class="table-text"><a href="mailto:dima2017.koshelev@yandex.ru">dima2017.koshelev@yandex.ru</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td class="table-title">ТЕЛЕФОН</td>
-                                        <td class="table-text"><i>Данные удалены</i></td>
-                                    </tr>
-                                </table>
-
-                                <!-- Кнопка отправить письмо -->
-                                <div class="btn-send-mail"><a href="mailto:dima2017.koshelev@yandex.ru">Отправить письмо</a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 2 страница -->
-                <div class="content__page page page_2">
-                    <div class="wrapper__content-pages">
-                        <!-- <img src="" alt="" class="background-page"> -->
-                        <div class="background-filter__background-page"></div>
-
-                        <div class="page-wrapper">
-                            <!-- Фотка -->
-                            <div class="page__left photo-wrapper">
-                                <div class="r-top-decoration"></div>
-                                <div class="l-bottom-decoration"></div>
-                                <!-- <img class="my_photo" src="./img/background_window.jpg" alt=""> -->
-                                <div class="photo_work"></div>
-                            </div>
-
-                            <!-- Текст -->
-                            <div class="page__right text-wrapper">
-                                <div class="title_page">Мои работы</div>
-                                
-                                <div class="hidden-text open__hidden-text">
-                                    <div class="title__hidden-text">
-                                        <div class="title-text__hidden-text">Работа 1</div>
-                                        <div class="plus__hidden-text"><div class="plus_1"></div><div class="plus_2"></div></div>
-                                    </div>
-                                    <div class="body__hidden-text">
-                                        Данная работа разработана для сайта tkbt68.ru, и является временной “темой” под <i><b><u>весеннее</u></b></i> время года. 
-                                        Во время разработки было сделан: дизайн, Fron-End часть и встраивание её в Back-End часть(натягивание верстки).
-                                    </div>
-                                </div>
-                                <div class="hidden-text">
-                                    <div class="title__hidden-text">
-                                        <div class="title-text__hidden-text">Работа 2</div>
-                                        <div class="plus__hidden-text"><div class="plus_1"></div><div class="plus_2"></div></div>
-                                    </div>
-                                    <div class="body__hidden-text">
-                                        Данная работа разработана для сайта tkbt68.ru, и является временной “темой” под <i><b><u>зимнее</u></b></i> время года. 
-                                        Во время разработки было сделан: дизайн, Fron-End часть и встраивание её в Back-End часть(натягивание верстки).
-                                    </div>
-                                </div>
-                                <div class="hidden-text">
-                                    <div class="title__hidden-text">
-                                        <div class="title-text__hidden-text">Работа 3</div>
-                                        <div class="plus__hidden-text"><div class="plus_1"></div><div class="plus_2"></div></div>
-                                    </div>
-                                    <div class="body__hidden-text">
-                                        Данная работа разработана для сайта tkbt68.ru, и является временной “темой” под <i><b><u>осеннее</u></b></i> время года. 
-                                        Во время разработки было сделан: дизайн, Fron-End часть и встраивание её в Back-End часть(натягивание верстки).
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 3 страница -->
-                <div class="content__page page page_3">
-                    <div class="wrapper__content-pages">
-                        <!-- <img src="" alt="" class="background-page"> -->
-                        <div class="background-filter__background-page page3"></div>
-
-                        <div class="page-wrapper">
-                            <!-- Фотка -->
-                            <div class="page__left photo-wrapper">
-                                <div class="r-top-decoration"></div>
-                                <div class="l-bottom-decoration"></div>
-                                <!-- <img class="my_photo" src="./img/background_window.jpg" alt=""> -->
-                                <div class="photo_work"></div>
-                            </div>
-
-                            <!-- Текст -->
-                            <div class="page__right text-wrapper">                              
-                                <p><span>Имею опыт работы с:</span> </br> 
-                                    HTML<i>(+ методология БЭМ)</i>, 
-                                    CSS<i>(Был знаком с препроцессом SCSS)</i>, 
-                                    JS<i>(Имеется опыт работы с babylon js, chart js и др)</i>, 
-                                    PHP<i>(8.1)</i>, 
-                                    Yii2, 
-                                    MySQL, 
-                                    Linux<i>(Ubuntu + fail2ban + nginx + "Проверка машины")</i>.
-                                </p></br></br>
-                                <p>
-                                    <span>Имею навыки работы в программах:</span></br> 
-                                    Figma, VS Code, Vim💪
-                                </p></br></br>
-                                <p>
-                                    <span>Опыт работы:</span></br>
-
-                                    - Системным администратором и преподавателем в АНПОО “Тамбовский колледж бизнес-технологий”</br>
-                                    
-                                    - Backend-разработчиком в команде в ООО "ВРАТА"
-                                </p>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- 4 страница -->
-                <div class="content__page page page_4">
-                    <div class="wrapper__content-pages">
-                        <!-- <img src="" alt="" class="background-page"> -->
-                        <div class="background-filter__background-page"></div>
-
-                        <div class="page-wrapper">
-                            <!-- Фотка -->
-                            <div class="page__left photo-wrapper">
-                                <div class="r-top-decoration"></div>
-                                <div class="l-bottom-decoration"></div>
-                                <!-- <img class="my_photo" src="./img/background_window.jpg" alt=""> -->
-                                <div class="photo_work"></div>
-                            </div>
-
-                            <!-- Текст -->
-                            <div class="page__right text-wrapper display_flex">
-                                <div class="title_page">О себе</div>
-                                
-                                <p class="custom_scroll">Я — опытный разработчик и дизайнер в области веб-технологий. </br></br>
-
-                                    Опыт полноценного разработчика начался с позиции backend-разработчика в ООО "ВРАТА", 
-                                    где применял свои знания в разработке сложных веб-приложений. 
-                                    В этой роли я привнёс в проект множество функциональных вещей.</br></br>
-                                    
-                                    Кроме того, я имею опыт работы с операционной системой Linux (Ubuntu) и связанными инструментами, такими как fail2ban, nginx и прочее.</br></br>
-                                    
-                                    Я также владею навыками работы в таких программах, как Figma, VS Code, что помогает мне создавать функциональные и эстетически привлекательные проекты.</br></br>
-                                    
-                                    Моя цель — не просто создавать проекты, но и вдыхать в них жизнь, делая их максимально полезными и удобными для пользователей. 
-                                    Я стремлюсь к постоянному совершенствованию и всегда открыт для новых вызовов и возможностей.</br></br>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  <div class="scene" aria-hidden="true"></div>
+  <div class="stage">
+    <main class="card" aria-label="Визитка Дмитрия Кошелева">
+      <header class="card-header">
+        <span class="serial">DK / PERSONAL FILE</span>
+        <span class="header-line" aria-hidden="true"></span>
+        <span class="section-code" aria-hidden="true">01 — КОНТАКТЫ</span>
+      </header>
+      <div class="card-body">
+        <section class="panel" id="contacts" aria-labelledby="contacts-title">
+          <figure class="visual portrait">
+            <img src="./img/optimized/portrait.webp" alt="Дмитрий Кошелев" width="480" height="640" fetchpriority="high">
+            <figcaption><span>DK — 01</span><span>WEB DEVELOPMENT</span></figcaption>
+          </figure>
+          <div class="panel-copy intro-copy">
+            <div class="greeting"><span id="greeting" aria-live="polite">Привет!</span><span class="cursor" aria-hidden="true"></span></div>
+            <h1 id="contacts-title">Кошелев Дмитрий<span class="patronymic">Александрович</span></h1>
+            <p class="profession">Веб-разработчик <span class="accent-slash">/</span> немного дизайнер</p>
+            <dl class="contact-list">
+              <div><dt>Локация</dt><dd>Россия, Тамбовская область, Рассказово</dd></div>
+              <div><dt>Время · МСК</dt><dd><time id="time">UTC+3</time></dd></div>
+              <div><dt>Почта</dt><dd><a href="mailto:dima2017.koshelev@yandex.ru">dima2017.koshelev@yandex.ru</a></dd></div>
+            </dl>
+            <a class="mail-button" href="mailto:dima2017.koshelev@yandex.ru">Написать мне <span aria-hidden="true">↗</span></a>
+          </div>
+        </section>
+        <section class="panel" id="work" aria-labelledby="work-title" hidden>
+          <figure class="visual work-visual">
+            <img id="work-preview" src="./img/optimized/work-1.webp" alt="Весенняя тема сайта tkbt68.ru" width="480" height="640" loading="lazy">
+            <figcaption><span id="work-number">PROJECT — 01</span><span>TKBT68.RU</span></figcaption>
+          </figure>
+          <div class="panel-copy">
+            <p class="eyebrow">Интерфейсы / разработка</p>
+            <h2 id="work-title">Мои работы<span class="heading-dot" aria-hidden="true">.</span></h2>
+            <p class="section-intro">Сезонные темы для сайта колледжа.</p>
+            <div class="projects">
+              <details class="project" open data-image="./img/optimized/work-1.webp" data-alt="Весенняя тема сайта tkbt68.ru" data-number="01">
+                <summary><span class="project-number">01</span> Весенняя тема <span class="project-toggle" aria-hidden="true"></span></summary>
+                <p>Дизайн, вёрстка интерфейса и интеграция с серверной частью сайта tkbt68.ru. Временное оформление к весеннему сезону.</p>
+              </details>
+              <details class="project" data-image="./img/optimized/work-2.webp" data-alt="Зимняя тема сайта tkbt68.ru" data-number="02">
+                <summary><span class="project-number">02</span> Зимняя тема <span class="project-toggle" aria-hidden="true"></span></summary>
+                <p>Зимнее оформление сайта tkbt68.ru: от дизайна до вёрстки и подключения темы к существующей серверной части.</p>
+              </details>
+              <details class="project" data-image="./img/optimized/work-3.webp" data-alt="Осенняя тема сайта tkbt68.ru" data-number="03">
+                <summary><span class="project-number">03</span> Осенняя тема <span class="project-toggle" aria-hidden="true"></span></summary>
+                <p>Осенняя тема сайта tkbt68.ru. Разработка дизайна, клиентской части и интеграция в действующий сайт.</p>
+              </details>
             </div>
-
-            <!-- нижняя часть визитки -->
-            <div class="content__footer">
-                <!-- ссылки -->
-                <div class="social-link">
-                    <div class="social-link__wrapper">
-                        <div class="wrapper-link">
-                            <a href="#"></a>
-                            <object data="./img/social/figma.svg" type="image/svg+xml"></object>
-                        </div>
-                        <div class="wrapper-link">
-                            <a href="#"></a>
-                            <object data="./img/social/ok.svg" type="image/svg+xml"></object>
-                        </div>
-                        <div class="wrapper-link">
-                            <a href="#"></a>
-                            <object data="./img/social/trello.svg" type="image/svg+xml"></object>
-                        </div>
-                        <div class="wrapper-link">
-                            <a href="#"></a>
-                            <object data="./img/social/vk.svg" type="image/svg+xml"></object>
-                        </div>
-                        <div class="wrapper-link">
-                            <a href="#"></a>
-                            <object data="./img/social/youtube.svg" type="image/svg+xml"></object>
-                        </div>
-                        <div class="wrapper-link">
-                            <a href="#"></a>
-                            <object data="./img/social/steam.svg" type="image/svg+xml"></object>
-                        </div>
-                        <div class="wrapper-link">
-                            <a href="#"></a>
-                            <object data="./img/social/whatsapp.svg" type="image/svg+xml"></object>
-                        </div>
-                        <div class="wrapper-link">
-                            <a href="#"></a>
-                            <object data="./img/social/github.svg" type="image/svg+xml"></object>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- кнопки навигации -->
-                <div class="buttons-navigation">
-                    <div class="btn-nav selected">
-                        <div class="btn-nav__wrapper">
-                            <!-- <object data="./img/nav/1.svg" type="image/svg+xml"></object> -->
-                        </div>
-                        <object id="btn_1" data="./img/nav/1.svg" type="image/svg+xml"></object>
-                    </div>
-                    <div class="btn-nav">
-                        <div class="btn-nav__wrapper">
-                            <!-- <object data="./img/nav/1.svg" type="image/svg+xml"></object> -->
-                        </div>
-                        <object id="btn_2" data="./img/nav/2.svg" type="image/svg+xml"></object>
-                    </div>
-                    <div class="btn-nav">
-                        <div class="btn-nav__wrapper">
-                            <!-- <object data="./img/nav/1.svg" type="image/svg+xml"></object> -->
-                        </div>
-                        <object id="btn_3" data="./img/nav/3.svg" type="image/svg+xml"></object>
-                    </div>
-                    <div class="btn-nav">
-                        <div class="btn-nav__wrapper">
-                            <!-- <object data="./img/nav/1.svg" type="image/svg+xml"></object> -->
-                        </div>
-                        <object id="btn_4" data="./img/nav/4.svg" type="image/svg+xml"></object>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+          </div>
+        </section>
+        <section class="panel" id="skills" aria-labelledby="skills-title" hidden>
+          <figure class="visual">
+            <img src="./img/optimized/skills.webp" alt="Иллюстрация к разделу навыков" width="480" height="640" loading="lazy">
+            <figcaption><span>TOOLKIT — 03</span><span>BUILD / EXPLORE</span></figcaption>
+          </figure>
+          <div class="panel-copy">
+            <p class="eyebrow">Технологии / опыт</p>
+            <h2 id="skills-title">Навыки<span class="heading-dot" aria-hidden="true">.</span></h2>
+            <div class="skill-block"><h3>Разработка</h3><p>PHP, Yii2, MySQL, HTML и БЭМ, CSS, JavaScript. Есть опыт с Babylon.js и Chart.js.</p></div>
+            <div class="skill-block"><h3>Инструменты</h3><p>Ubuntu, Nginx, Git, Figma, VS Code и Vim. Знаком с Docker, Blender и Unity.</p></div>
+            <div class="skill-block"><h3>Работал</h3><p>Backend-разработчиком в ООО «ВРАТА». Системным администратором и преподавателем в АНПОО «Тамбовский колледж бизнес-технологий».</p></div>
+          </div>
+        </section>
+        <section class="panel" id="about" aria-labelledby="about-title" hidden>
+          <figure class="visual">
+            <img src="./img/optimized/about.webp" alt="Иллюстрация к разделу обо мне" width="480" height="640" loading="lazy">
+            <figcaption><span>PROFILE — 04</span><span>KEEP EXPLORING</span></figcaption>
+          </figure>
+          <div class="panel-copy prose">
+            <p class="eyebrow">Человек за кодом</p>
+            <h2 id="about-title">О себе<span class="heading-dot" aria-hidden="true">.</span></h2>
+            <p>Я занимаюсь веб-разработкой и интересуюсь дизайном интерфейсов. Мне нравится превращать идеи в полезные и удобные проекты.</p>
+            <p>Мой опыт полноценной разработки начался с позиции backend-разработчика в ООО «ВРАТА», где я работал над веб-приложениями в команде.</p>
+            <p>Знаком с Linux и серверными инструментами: Ubuntu, Nginx и fail2ban. Для работы с интерфейсами использую Figma и VS Code.</p>
+            <p>В свободное время пробую новые технологии и небольшие проекты: от 3D-моделирования до интерактивных сцен. Продолжаю учиться и открыт для новых задач.</p>
+          </div>
+        </section>
+      </div>
+      <footer class="card-footer">
+        <div class="signature"><span class="signature-mark" aria-hidden="true">DK<span>/</span></span><span class="signature-text">ДМИТРИЙ КОШЕЛЕВ<small>Разработка с вниманием к деталям</small></span></div>
+        <nav class="social-links" aria-label="Мои страницы">
+          <a class="social-link" href="#" aria-label="Figma"><img src="./img/social/figma.svg" alt="" width="24" height="24"></a>
+          <a class="social-link" href="#" aria-label="Одноклассники"><img src="./img/social/ok.svg" alt="" width="24" height="24"></a>
+          <a class="social-link" href="#" aria-label="Trello"><img src="./img/social/trello.svg" alt="" width="24" height="24"></a>
+          <a class="social-link" href="#" aria-label="VK"><img src="./img/social/vk.svg" alt="" width="24" height="24"></a>
+          <a class="social-link" href="#" aria-label="YouTube"><img src="./img/social/youtube.svg" alt="" width="24" height="24"></a>
+          <a class="social-link" href="#" aria-label="Steam"><img src="./img/social/steam.svg" alt="" width="24" height="24"></a>
+          <a class="social-link" href="#" aria-label="WhatsApp"><img src="./img/social/whatsapp.svg" alt="" width="24" height="24"></a>
+          <a class="social-link" href="#" aria-label="GitHub"><img src="./img/social/github.svg" alt="" width="24" height="24"></a>
+        </nav>
+        <nav class="card-nav" aria-label="Разделы визитки">
+          <a class="nav-link" href="#contacts" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17"/><path d="M9 4V2h6v2M9 10h6M9 14h6M9 18h3"/></svg><span>Контакты</span></a>
+          <a class="nav-link" href="#work"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="14"/><path d="M8 7V3h8v4M3 13h18M10 13v3h4v-3"/></svg><span>Работы</span></a>
+          <a class="nav-link" href="#skills"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 6-6 6 6 6M16 6l6 6-6 6M14 3l-4 18"/></svg><span>Навыки</span></a>
+          <a class="nav-link" href="#about"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="4"/><path d="M4 22v-3a8 8 0 0 1 16 0v3M9 19h6"/></svg><span>О себе</span></a>
+        </nav>
+      </footer>
+    </main>
+  </div>
+  <button class="orientation-toggle" type="button" aria-label="Повернуть визитку на 180 градусов" aria-pressed="false" title="Повернуть визитку на 180°"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8a9 9 0 1 0 1 7M20 3v6h-6"/></svg><span>180°</span></button>
+  <noscript><style>.panel[hidden]{display:grid!important}.card-body{overflow:auto}.card{overflow:auto}.panel{min-height:100%}.orientation-toggle{display:none}</style></noscript>
 </body>
-<script src="./js/main.js"></script>
 </html>

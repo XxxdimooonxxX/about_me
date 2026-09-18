@@ -1,0 +1,3 @@
+# Crawling is allowed so search engines can read the noindex header and meta tag.
+User-agent: *
+Allow: /

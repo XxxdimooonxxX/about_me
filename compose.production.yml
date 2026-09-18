@@ -1,0 +1,10 @@
+services:
+  business-card:
+    networks:
+      edge:
+        aliases:
+          - dkoshelev-card
+networks:
+  edge:
+    external: true
+    name: web-edge

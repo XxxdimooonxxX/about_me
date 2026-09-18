@@ -1,0 +1,5 @@
+dkoshelev.resbook.ru {
+    encode zstd gzip
+    header X-Robots-Tag "noindex, nofollow, noarchive, noimageindex"
+    reverse_proxy dkoshelev-card:80
+}
