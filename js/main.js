@@ -60,6 +60,8 @@
     clock.textContent = formatter.format(now);
     clock.dateTime = now.toISOString();
   };
+  updateClock();
+  window.setInterval(updateClock, 1000);
   const greeting = document.querySelector('#greeting');
   const greetings = ['Привет!', 'Hello!', 'Ciao!', 'こんにちは!', '嗨！', '안녕!'];
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
