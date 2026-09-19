@@ -1,0 +1,47 @@
+const {chromium}=require('playwright'),assert=require('node:assert/strict'),path=require('node:path');
+const server=require('./serve.cjs');
+(async()=>{
+  await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));const url='http://127.0.0.1:'+server.address().port;
+  const browser=await chromium.launch({channel:process.env.BROWSER_CHANNEL||'msedge',headless:true}),errors=[];
+  const attach=p=>{p.on('pageerror',e=>errors.push(e.message));p.on('console',m=>{if(m.type()==='error')errors.push(m.text())});p.on('response',r=>{if(r.status()>=400)errors.push(r.status()+' '+r.url())})};
+  const ready=p=>p.waitForFunction(()=>document.querySelector('#scene-canvas').dataset.ready==='true',null,{timeout:60000});
+  const frames=p=>p.locator('#scene-canvas').evaluate(c=>Number(c.dataset.frames||0));
+  try{
+    const desktop=await browser.newContext({viewport:{width:1440,height:900},reducedMotion:'no-preference'});
+    const p=await desktop.newPage();attach(p);await p.goto(url);await ready(p);
+    assert.equal(await p.locator('#scene-toggle').getAttribute('aria-pressed'),'true');
+    await p.locator('#scene-toggle').click();await p.waitForTimeout(80);const stopped=await frames(p);await p.waitForTimeout(150);assert.equal(await frames(p),stopped,'3D off must stop drawing');
+    await p.locator('#scene-toggle').click();await p.waitForFunction(n=>Number(document.querySelector('#scene-canvas').dataset.frames)>n,stopped);
+    await p.locator('#card-toggle').click();assert.equal(await p.locator('.stage').evaluate(e=>e.inert),true);
+    await p.keyboard.press('Escape');assert.equal(await p.locator('.stage').evaluate(e=>e.inert),false);
+    await p.locator('.nav-link[href="#work"]').click();assert.equal(await p.locator('.flip-tile').count(),8);
+    await p.screenshot({path:path.resolve('.local/flip-panels.png')});
+    for(const id of ['skills','about','contacts','work'])await p.locator('.nav-link[href="#'+id+'"]').click();
+    await p.waitForFunction(()=>!document.querySelector('.flip-grid'));
+    assert.equal(await p.locator('.card-body>.panel:not([hidden])').getAttribute('id'),'work');
+    assert.equal(await p.locator('[aria-current="page"]').count(),1);
+    const ids=await p.locator('[id]').evaluateAll(nodes=>nodes.map(n=>n.id));assert.equal(ids.length,new Set(ids).size,'snapshot ids must not leak');
+    await p.emulateMedia({reducedMotion:'reduce'});await p.locator('.nav-link[href="#skills"]').click();
+    assert.equal(await p.locator('.flip-grid').count(),0);
+    await p.screenshot({path:path.resolve('.local/portal-desktop.png')});
+    await desktop.close();console.log('PASS desktop: WebGL, on/off, card hide/restore, rapid flips, reduced motion');
+    const mobile=await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
+    const m=await mobile.newPage();attach(m);let sceneRequests=0;
+    m.on('request',req=>{if(/chamber\.js|scene-textures/.test(req.url()))sceneRequests++});
+    await m.goto(url);await m.locator('.portrait img').evaluate(i=>i.decode());await m.waitForTimeout(150);
+    assert.equal(sceneRequests,0,'mobile must not fetch the 3D bundle or its textures before opt-in');
+    assert.equal(await m.locator('#scene-toggle').getAttribute('aria-pressed'),'false');assert.equal(await frames(m),0);
+    const controls=await m.locator('.scene-controls').boundingBox();assert(controls.x>=0&&controls.x+controls.width<=390);
+    await m.screenshot({path:path.resolve('.local/portal-mobile.png')});
+    await m.locator('#scene-toggle').click();await ready(m);assert(sceneRequests>0);assert.equal(await m.locator('#scene-toggle').getAttribute('aria-pressed'),'true');
+    await m.locator('#scene-toggle').click();await m.waitForTimeout(100);const mobileStop=await frames(m);await m.waitForTimeout(150);assert.equal(await frames(m),mobileStop);
+    await m.reload();assert.equal(await m.locator('#scene-toggle').getAttribute('aria-pressed'),'false');
+    await mobile.close();console.log('PASS mobile: no 3D requests before opt-in, rendering starts/stops, default off after reload');
+    const failed=await browser.newContext({viewport:{width:1000,height:800}}),f=await failed.newPage();
+    await f.addInitScript(()=>{const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type,...args){return /^webgl/.test(type)?null:original.call(this,type,...args)}});
+    await f.goto(url);await f.waitForFunction(()=>document.querySelector('#scene-canvas').dataset.error==='true');
+    assert.equal(await f.locator('#scene-toggle').getAttribute('aria-pressed'),'false');await f.locator('.nav-link[href="#about"]').click();
+    await f.waitForFunction(()=>!document.querySelector('.flip-grid'));assert.equal(await f.locator('.card-body>.panel:not([hidden])').getAttribute('id'),'about');
+    await failed.close();console.log('PASS no WebGL: static fallback and navigation remain usable');assert.deepEqual(errors,[]);
+  }finally{await browser.close();server.close()}
+})().catch(e=>{console.error(e);server.close();process.exitCode=1});

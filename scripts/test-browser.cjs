@@ -39,27 +39,28 @@ const response = await page.goto(url);
       const checkGeometry = async () => {
         const box = await page.locator('.card').boundingBox();
         assert(box.x >= 20 && box.y >= 20 && box.x + box.width <= width - 20 && box.y + box.height <= height - 20, `card clipped: ${width}x${height} ${JSON.stringify(box)}`);
-        if (await page.locator('.orientation-toggle').isVisible()) {
-          const button = await page.locator('.orientation-toggle').boundingBox();
+        for (const control of await page.locator('.scene-controls button').all()) {
+          const button = await control.boundingBox();
+          assert(button.x>=0&&button.y>=0&&button.x+button.width<=width&&button.y+button.height<=height,'scene control is clipped');
           assert(button.x + button.width <= box.x || button.x >= box.x + box.width || button.y + button.height <= box.y || button.y >= box.y + box.height, 'rotate button overlaps card');
         }
-        const overflow = await page.locator('.panel:not([hidden]) .panel-copy').evaluate(el => ({scroll:el.scrollWidth, client:el.clientWidth}));
+        const overflow = await page.locator('.card-body > .panel:not([hidden]) .panel-copy').evaluate(el => ({scroll:el.scrollWidth, client:el.clientWidth}));
         assert(overflow.scroll <= overflow.client + 1, `horizontal text overflow: ${JSON.stringify(overflow)}`);
       };
       await checkGeometry();
       await page.screenshot({ path: path.join(root, '.local', `card-${width}x${height}.png`) });
       for (const id of ['work','skills','about','contacts']) {
         await page.locator(`.nav-link[href="#${id}"]`).click();
-        assert.equal(await page.locator('.panel:not([hidden])').getAttribute('id'), id);
+        assert.equal(await page.locator('.card-body > .panel:not([hidden])').getAttribute('id'), id);
         assert.equal(await page.locator('.nav-link[aria-current]').count(), 1);
         await checkGeometry();
       }
       await page.locator('.nav-link[href="#work"]').click();
       for (let i=0; i<3; i++) {
-        const project = page.locator('.project').nth(i);
+        const project = page.locator('#work > .panel-copy .project').nth(i);
         if (!(await project.getAttribute('open') !== null)) await project.locator('summary').click();
         await page.waitForFunction(number => document.querySelector('#work-number').textContent.endsWith(number), String(i+1).padStart(2,'0'));
-        assert.equal(await page.locator('.project[open]').count(), 1);
+        assert.equal(await page.locator('#work > .panel-copy .project[open]').count(), 1);
         await page.locator('#work-preview').evaluate(img => img.decode());
       }
       if (await page.locator('.orientation-toggle').isVisible()) {
@@ -75,12 +76,12 @@ const response = await page.goto(url);
         await checkGeometry();
       }
       await page.goto(url + '/#skills');
-      assert.equal(await page.locator('.panel:not([hidden])').getAttribute('id'), 'skills');
+      assert.equal(await page.locator('.card-body > .panel:not([hidden])').getAttribute('id'), 'skills');
       await page.locator('.nav-link[href="#contacts"]').focus();
       await page.keyboard.press('Enter');
-      assert.equal(await page.locator('.panel:not([hidden])').getAttribute('id'), 'contacts');
+      assert.equal(await page.locator('.card-body > .panel:not([hidden])').getAttribute('id'), 'contacts');
       await page.goBack();
-      assert.equal(await page.locator('.panel:not([hidden])').getAttribute('id'), 'skills');
+      assert.equal(await page.locator('.card-body > .panel:not([hidden])').getAttribute('id'), 'skills');
       assert.deepEqual(errors, []);
       console.log(`PASS ${width}x${height}: navigation, geometry, projects, rotation, keyboard, no errors`);
       await context.close();

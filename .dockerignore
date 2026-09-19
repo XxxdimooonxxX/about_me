@@ -8,11 +8,14 @@
 !css/main.css
 !js/
 !js/main.js
+!js/chamber.js
 !img/
 !img/optimized/
 !img/optimized/**
 !img/social/
 !img/social/**
-!img/background_window.jpg
+!img/scene-poster.webp
+!img/scene-textures/
+!img/scene-textures/**
 !img/velvet.svg
 !img/favicon.svg

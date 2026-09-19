@@ -1,0 +1,14 @@
+{
+  "name": "dk-aperture-card",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.cjs",
+    "preview": "node scripts/serve.cjs",
+    "test": "node scripts/test-browser.cjs && node scripts/test-scene.cjs"
+  },
+  "devDependencies": {
+    "three": "0.180.0",
+    "esbuild": "0.25.10",
+    "playwright": "1.56.1"
+  }
+}

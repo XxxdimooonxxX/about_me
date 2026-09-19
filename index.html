@@ -12,13 +12,21 @@
   <script src="./js/main.js" defer></script>
 </head>
 <body>
-  <div class="scene" aria-hidden="true"></div>
+  <div class="scene-wrap">
+    <canvas class="scene" id="scene-canvas" aria-hidden="true"></canvas>
+    <div class="scene-tint" aria-hidden="true"></div>
+    <div class="scene-hud">
+      <span class="scene-label"><i></i> APERTURE / TEST CHAMBER 09</span>
+      <span class="scene-readout" id="scene-status" role="status">КАМЕРА 09 / РЕЖИМ ОЖИДАНИЯ</span>
+    </div>
+
+  </div>
   <div class="stage">
     <main class="card" aria-label="Визитка Дмитрия Кошелева">
       <header class="card-header">
-        <span class="serial">DK / PERSONAL FILE</span>
+        <span class="lab-mark" aria-hidden="true">◈</span><span class="serial">APERTURE LABORATORIES<small>PERSONNEL ACCESS / DK-09</small></span>
         <span class="header-line" aria-hidden="true"></span>
-        <span class="section-code" aria-hidden="true">01 — КОНТАКТЫ</span>
+        <span class="file-number" aria-hidden="true">01</span><span class="section-code" aria-hidden="true">01 / КОНТАКТЫ</span>
       </header>
       <div class="card-body">
         <section class="panel" id="contacts" aria-labelledby="contacts-title">
@@ -112,7 +120,11 @@
       </footer>
     </main>
   </div>
-  <button class="orientation-toggle" type="button" aria-label="Повернуть визитку на 180 градусов" aria-pressed="false" title="Повернуть визитку на 180°"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8a9 9 0 1 0 1 7M20 3v6h-6"/></svg><span>180°</span></button>
-  <noscript><style>.panel[hidden]{display:grid!important}.card-body{overflow:auto}.card{overflow:auto}.panel{min-height:100%}.orientation-toggle{display:none}</style></noscript>
+  <div class="scene-controls" aria-label="Управление сценой">
+    <button class="scene-toggle" id="scene-toggle" type="button" aria-label="Включить 3D сцену" aria-pressed="false" title="Включить или выключить 3D сцену"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z"/><path d="m4.5 7.8 7.5 4.4 7.5-4.4M12 12.2V21"/></svg><span>3D OFF</span></button>
+    <button class="card-toggle" id="card-toggle" type="button" aria-label="Скрыть визитку" aria-pressed="false" title="Показать или скрыть визитку"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3zM7 9h10M7 13h6"/></svg><span>Скрыть визитку</span></button>
+    <button class="orientation-toggle" type="button" aria-label="Повернуть визитку на 180 градусов" aria-pressed="false" title="Повернуть визитку на 180°"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8a9 9 0 1 0 1 7M20 3v6h-6"/></svg><span>180°</span></button>
+  </div>
+  <noscript><style>.panel[hidden]{display:grid!important}.card-body{overflow:auto}.card{overflow:auto}.panel{min-height:100%}.scene-controls{display:none}</style></noscript>
 </body>
 </html>
