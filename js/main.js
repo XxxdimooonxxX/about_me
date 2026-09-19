@@ -52,15 +52,22 @@
 
   const clock = document.querySelector('#time');
   const formatter = new Intl.DateTimeFormat('ru-RU', {
-    timeZone: 'Europe/Moscow', day: '2-digit', month: '2-digit', year: 'numeric',
-    hour: '2-digit', minute: '2-digit'
+    timeZone: 'Europe/Moscow', day: '2-digit', month: 'long', year: 'numeric',
+    hour: '2-digit', minute: '2-digit', second: '2-digit'
   });
   const updateClock = () => {
     const now = new Date();
     clock.textContent = formatter.format(now);
     clock.dateTime = now.toISOString();
   };
-  const greeting = document.querySelector('#greeting');
+  updateClock();
+  window.setInterval(updateClock, 1000);
+  const decorToggle = document.querySelector('.three-d-toggle');
+  let decorEnabled = !matchMedia('(pointer: coarse), (max-width: 600px)').matches;
+  const applyDecor = () => { document.body.classList.toggle('three-d-on', decorEnabled); decorToggle.setAttribute('aria-pressed', String(decorEnabled)); };
+  document.querySelectorAll('.cube').forEach(cube => { for (let i = 0; i < 6; i += 1) { const face = document.createElement('span'); face.className = 'cube-face'; cube.append(face); } });
+  decorToggle.addEventListener('click', () => { decorEnabled = !decorEnabled; applyDecor(); });
+  applyDecor();  const greeting = document.querySelector('#greeting');
   const greetings = ['Привет!', 'Hello!', 'Ciao!', 'こんにちは!', '嗨！', '안녕!'];
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const delay = (ms) => new Promise((resolve) => window.setTimeout(resolve, ms));
@@ -104,3 +111,5 @@
   };
   runGreetingLoop();
 })();
+
+

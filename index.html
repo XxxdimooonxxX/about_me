@@ -12,7 +12,7 @@
   <script src="./js/main.js" defer></script>
 </head>
 <body>
-  <div class="scene" aria-hidden="true"></div>
+  <div class="scene" aria-hidden="true"><div class="portal-grid"></div><div class="cube cube-a"></div><div class="cube cube-b"></div><div class="camera-label label-a">CAM 01 // APERTURE</div><div class="camera-label label-b">TEST CHAMBER 04</div></div>
   <div class="stage">
     <main class="card" aria-label="Визитка Дмитрия Кошелева">
       <header class="card-header">
@@ -112,7 +112,8 @@
       </footer>
     </main>
   </div>
-  <button class="orientation-toggle" type="button" aria-label="Повернуть визитку на 180 градусов" aria-pressed="false" title="Повернуть визитку на 180°"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8a9 9 0 1 0 1 7M20 3v6h-6"/></svg><span>180°</span></button>
+  <div class="corner-controls"><button class="three-d-toggle" type="button" aria-label="Включить 3D-декор" aria-pressed="false"><span class="toggle-led" aria-hidden="true"></span><span>3D SYSTEM</span></button><button class="orientation-toggle" type="button" aria-label="Повернуть визитку на 180 градусов" aria-pressed="false" title="Повернуть визитку на 180°"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8a9 9 0 1 0 1 7M20 3v6h-6"/></svg><span>180°</span></button></div>
   <noscript><style>.panel[hidden]{display:grid!important}.card-body{overflow:auto}.card{overflow:auto}.panel{min-height:100%}.orientation-toggle{display:none}</style></noscript>
 </body>
 </html>
+
