@@ -9,10 +9,12 @@
   <title>Дмитрий Кошелев — визитка</title>
   <link rel="icon" href="./img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/portal.css">
   <script src="./js/main.js" defer></script>
+  <script src="./js/scene.js" defer></script>
 </head>
 <body>
-  <div class="scene" aria-hidden="true"></div>
+  <div class="scene" aria-hidden="true"><canvas id="portal-scene"></canvas><div class="scene-grid"></div><div class="status-board"><span>APERTURE LABS</span><strong>TEST CHAMBER 04</strong><small>PERSONNEL FILE // DK-01</small></div></div>
   <div class="stage">
     <main class="card" aria-label="Визитка Дмитрия Кошелева">
       <header class="card-header">
@@ -114,5 +116,6 @@
   </div>
   <button class="orientation-toggle" type="button" aria-label="Повернуть визитку на 180 градусов" aria-pressed="false" title="Повернуть визитку на 180°"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8a9 9 0 1 0 1 7M20 3v6h-6"/></svg><span>180°</span></button>
   <noscript><style>.panel[hidden]{display:grid!important}.card-body{overflow:auto}.card{overflow:auto}.panel{min-height:100%}.orientation-toggle{display:none}</style></noscript>
+<button class="scene-toggle" type="button" aria-pressed="false"><span class="toggle-led"></span><span>3D SCENE</span></button>
 </body>
 </html>

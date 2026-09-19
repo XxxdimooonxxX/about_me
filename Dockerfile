@@ -1,8 +1,8 @@
 FROM nginx:stable-alpine
 COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 COPY index.html robots.txt /usr/share/nginx/html/
-COPY css/main.css /usr/share/nginx/html/css/main.css
-COPY js/main.js /usr/share/nginx/html/js/main.js
+COPY css/ /usr/share/nginx/html/css/
+COPY js/ /usr/share/nginx/html/js/
 COPY img/optimized/ /usr/share/nginx/html/img/optimized/
 COPY img/social/ /usr/share/nginx/html/img/social/
 COPY img/background_window.jpg img/velvet.svg img/favicon.svg /usr/share/nginx/html/img/

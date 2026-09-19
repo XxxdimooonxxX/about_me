@@ -149,7 +149,8 @@ h3 { color: var(--cyan); font-size: 14px; font-weight: 500; margin-bottom: 4px; 
   .social-link img { width: 12px; height: 12px; }
   .signature-text { display: none; }
   .nav-link { width: 61px; }
-  .section-code { letter-spacing: 0; }`r`n  .card-footer { min-width: 0; }
+  .section-code { letter-spacing: 0; }
+  .card-footer { min-width: 0; }
   .signature { padding-left: 9px; gap: 4px; }
   .signature-mark { font-size: 18px; }
   .social-links { gap: 1px; margin-right: 3px; }
@@ -170,5 +171,3 @@ h3 { color: var(--cyan); font-size: 14px; font-weight: 500; margin-bottom: 4px; 
   @keyframes panel-enter { from { opacity: .35; } to { opacity: 1; } }
   @keyframes blink { 50% { opacity: 0; } }
 }
-
-

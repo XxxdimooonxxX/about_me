@@ -3,9 +3,34 @@
   const panels = [...document.querySelectorAll('.panel')];
   const links = [...document.querySelectorAll('.nav-link')];
   const code = document.querySelector('.section-code');
+  let selectedId;
+  let flipLayer;
+  const animatePanels = () => {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (flipLayer) flipLayer.remove();
+    const layer = document.createElement('div');
+    layer.className = 'flip-grid'; layer.setAttribute('aria-hidden', 'true');
+    flipLayer = layer;
+    document.querySelector('.card-body').append(layer);
+    const animations = Array.from({ length: 12 }, (_, i) => {
+      const tile = document.createElement('div'); tile.className = 'flip-tile'; layer.append(tile);
+      return tile.animate([
+        { transform: 'rotateX(0deg)', opacity: 1 },
+        { transform: 'rotateX(-15deg)', opacity: 1, offset: .22 },
+        { transform: 'rotateX(90deg)', opacity: 1, offset: .78 },
+        { transform: 'rotateX(110deg)', opacity: 0 }
+      ], { duration: 740, delay: (i % 6) * 48 + Math.floor(i / 6) * 85, fill: 'both', easing: 'cubic-bezier(.45,0,.2,1)' }).finished;
+    });
+    Promise.allSettled(animations).then(() => { layer.remove(); if (flipLayer === layer) flipLayer = null; });
+  };
   const selectPanel = () => {
     const id = location.hash.slice(1);
     const active = panels.find((panel) => panel.id === id) || panels[0];
+    if (selectedId && selectedId !== active.id) {
+      animatePanels();
+      document.dispatchEvent(new CustomEvent('panelchange', { detail: active.id }));
+    }
+    selectedId = active.id;
     panels.forEach((panel) => { panel.hidden = panel !== active; });
     links.forEach((link, index) => {
       const selected = link.hash === `#${active.id}`;
