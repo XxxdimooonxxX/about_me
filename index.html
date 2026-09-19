@@ -9,20 +9,32 @@
   <title>Дмитрий Кошелев — визитка</title>
   <link rel="icon" href="./img/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/chamber.css">
   <script src="./js/main.js" defer></script>
+  <script src="./js/chamber.js" defer></script>
 </head>
 <body>
   <div class="scene" aria-hidden="true"></div>
+  <div class="facility-label" aria-hidden="true"><span class="aperture-mark"></span><span>PERSONAL TESTING INITIATIVE<small>SECTOR DK / ENRICHMENT CENTER</small></span></div>
+  <div class="scene-depth" id="chamber-scene" aria-hidden="true" hidden>
+    <div class="depth-zone" data-zone="left"></div>
+    <div class="depth-zone" data-zone="right"></div>
+    <div class="depth-zone" data-zone="top"></div>
+    <div class="depth-zone" data-zone="bottom"></div>
+  </div>
+  <div class="facility-caption" aria-hidden="true"><span class="status-light"></span> THERE IS ALWAYS MORE TO EXPLORE <span>01 / 04</span></div>
   <div class="stage">
     <main class="card" aria-label="Визитка Дмитрия Кошелева">
       <header class="card-header">
-        <span class="serial">DK / PERSONAL FILE</span>
+        <span class="serial"><span class="aperture-mark" aria-hidden="true"></span> DK / PERSONAL FILE</span>
         <span class="header-line" aria-hidden="true"></span>
+        <span class="terminal-status"><span class="status-light" aria-hidden="true"></span> ONLINE</span>
         <span class="section-code" aria-hidden="true">01 — КОНТАКТЫ</span>
       </header>
       <div class="card-body">
         <section class="panel" id="contacts" aria-labelledby="contacts-title">
           <figure class="visual portrait">
+            <div class="test-sign" aria-hidden="true"><span class="test-number">01</span><span class="test-sign-copy">PERSONAL FILE<small>ЗНАКОМСТВО</small><span class="test-bars"></span></span><span class="test-total">/ 04</span></div>
             <img src="./img/optimized/portrait.webp" alt="Дмитрий Кошелев" width="480" height="640" fetchpriority="high">
             <figcaption><span>DK — 01</span><span>WEB DEVELOPMENT</span></figcaption>
           </figure>
@@ -32,7 +44,7 @@
             <p class="profession">Веб-разработчик <span class="accent-slash">/</span> немного дизайнер</p>
             <dl class="contact-list">
               <div><dt>Локация</dt><dd>Россия, Тамбовская область, Рассказово</dd></div>
-              <div><dt>Время · МСК</dt><dd><time id="time">UTC+3</time></dd></div>
+              <div class="clock-row"><dt>Дата и время<small>МОСКВА · UTC+3</small></dt><dd><time id="time"><span class="clock-date">Московское время</span><span class="clock-digits">—:—:—</span></time></dd></div>
               <div><dt>Почта</dt><dd><a href="mailto:dima2017.koshelev@yandex.ru">dima2017.koshelev@yandex.ru</a></dd></div>
             </dl>
             <a class="mail-button" href="mailto:dima2017.koshelev@yandex.ru">Написать мне <span aria-hidden="true">↗</span></a>
@@ -40,6 +52,7 @@
         </section>
         <section class="panel" id="work" aria-labelledby="work-title" hidden>
           <figure class="visual work-visual">
+            <div class="test-sign" aria-hidden="true"><span class="test-number">02</span><span class="test-sign-copy">PROJECT ARCHIVE<small>РЕЗУЛЬТАТЫ</small><span class="test-bars"></span></span><span class="test-total">/ 04</span></div>
             <img id="work-preview" src="./img/optimized/work-1.webp" alt="Весенняя тема сайта tkbt68.ru" width="480" height="640" loading="lazy">
             <figcaption><span id="work-number">PROJECT — 01</span><span>TKBT68.RU</span></figcaption>
           </figure>
@@ -65,6 +78,7 @@
         </section>
         <section class="panel" id="skills" aria-labelledby="skills-title" hidden>
           <figure class="visual">
+            <div class="test-sign" aria-hidden="true"><span class="test-number">03</span><span class="test-sign-copy">CAPABILITIES<small>ИНСТРУМЕНТЫ</small><span class="test-bars"></span></span><span class="test-total">/ 04</span></div>
             <img src="./img/optimized/skills.webp" alt="Иллюстрация к разделу навыков" width="480" height="640" loading="lazy">
             <figcaption><span>TOOLKIT — 03</span><span>BUILD / EXPLORE</span></figcaption>
           </figure>
@@ -78,6 +92,7 @@
         </section>
         <section class="panel" id="about" aria-labelledby="about-title" hidden>
           <figure class="visual">
+            <div class="test-sign" aria-hidden="true"><span class="test-number">04</span><span class="test-sign-copy">SUBJECT PROFILE<small>ЛИЧНОЕ ДЕЛО</small><span class="test-bars"></span></span><span class="test-total">/ 04</span></div>
             <img src="./img/optimized/about.webp" alt="Иллюстрация к разделу обо мне" width="480" height="640" loading="lazy">
             <figcaption><span>PROFILE — 04</span><span>KEEP EXPLORING</span></figcaption>
           </figure>
@@ -112,7 +127,8 @@
       </footer>
     </main>
   </div>
+  <button class="depth-toggle" type="button" aria-label="3D-окружение" aria-pressed="false" aria-controls="chamber-scene" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 9 5v10l-9 5-9-5V7Z M3 7l9 5 9-5M12 12v10M7 5l9 5"/></svg><span>3D <span class="depth-toggle-state">ВЫКЛ</span></span><span class="toggle-track" aria-hidden="true"></span></button>
   <button class="orientation-toggle" type="button" aria-label="Повернуть визитку на 180 градусов" aria-pressed="false" title="Повернуть визитку на 180°"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 8a9 9 0 1 0 1 7M20 3v6h-6"/></svg><span>180°</span></button>
-  <noscript><style>.panel[hidden]{display:grid!important}.card-body{overflow:auto}.card{overflow:auto}.panel{min-height:100%}.orientation-toggle{display:none}</style></noscript>
+  <noscript><style>.panel[hidden]{display:grid!important}.card-body{overflow:auto}.card{overflow:auto}.panel{min-height:100%}.orientation-toggle,.depth-toggle{display:none}</style></noscript>
 </body>
 </html>

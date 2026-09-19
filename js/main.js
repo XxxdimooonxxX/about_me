@@ -51,15 +51,29 @@
   applyOrientation();
 
   const clock = document.querySelector('#time');
-  const formatter = new Intl.DateTimeFormat('ru-RU', {
-    timeZone: 'Europe/Moscow', day: '2-digit', month: '2-digit', year: 'numeric',
-    hour: '2-digit', minute: '2-digit'
+  const dateFormatter = new Intl.DateTimeFormat('ru-RU', {
+    timeZone: 'Europe/Moscow', day: 'numeric', month: 'long', year: 'numeric'
   });
+  const timeFormatter = new Intl.DateTimeFormat('ru-RU', {
+    timeZone: 'Europe/Moscow', hour: '2-digit', minute: '2-digit', second: '2-digit', hourCycle: 'h23'
+  });
+  const clockDate = clock.querySelector('.clock-date');
+  const clockDigits = clock.querySelector('.clock-digits');
   const updateClock = () => {
     const now = new Date();
-    clock.textContent = formatter.format(now);
+    clockDate.textContent = dateFormatter.format(now);
+    clockDigits.textContent = timeFormatter.format(now);
     clock.dateTime = now.toISOString();
   };
+  let clockTimer;
+  const syncClock = () => {
+    window.clearInterval(clockTimer);
+    updateClock();
+    if (!document.hidden) clockTimer = window.setInterval(updateClock, 1000);
+  };
+  document.addEventListener('visibilitychange', syncClock);
+  syncClock();
+
   const greeting = document.querySelector('#greeting');
   const greetings = ['Привет!', 'Hello!', 'Ciao!', 'こんにちは!', '嗨！', '안녕!'];
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
