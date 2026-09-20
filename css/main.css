@@ -194,7 +194,8 @@ h3 { color: var(--cyan); font-size: 14px; font-weight: 500; margin-bottom: 4px; 
 /* Ceramic test panels form the terminal chassis; the portrait remains a glass display. */
 :root { --paper:#e2e4d8; --muted:#526362; --cyan:#128a96; --orange:#d57537; --line:#74868255; --ink:#182d30; }
 body { color:var(--ink); }
-.scene-wrap { background: #253f40 url("../img/scene-poster.webp") center / cover; }
+/* .scene-wrap { background: #253f40 url("../img/scene-poster.webp") center / cover; } */
+.scene-wrap { background: #253f40 url("../img/background_window.jpg") center / cover; }
 .scene-wrap::after { opacity:.07; }
 .scene-tint { background:radial-gradient(ellipse at center,#0d181b00 30%,#08151b66 100%);opacity:.65; }
 .view-scene .scene-tint { opacity:.24; }

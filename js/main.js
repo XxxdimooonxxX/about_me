@@ -88,5 +88,5 @@
   sceneButton.addEventListener('click',()=>enable(!desiredOn));
   reduced.addEventListener('change',()=>{cancelFlip();chamber?.setReducedMotion(reduced.matches);greet()});
   // Touch devices never request the scene bundle or texture maps until explicitly enabled.
-  enable(!matchMedia('(pointer: coarse)').matches&&!matchMedia('(max-width: 700px)').matches);
+  enable(!matchMedia('(pointer: coarse)').matches&&!matchMedia('(max-width: 100000px)').matches);
 })();
