@@ -37,6 +37,33 @@
     if(!project.open)return;projects.forEach(p=>{if(p!==project)p.open=false});
     preview.src=project.dataset.image;preview.alt=project.dataset.alt;document.querySelector('#work-number').textContent='PROJECT / '+project.dataset.number;
   }));
+  const imageViewer=document.querySelector('#image-viewer'),viewerImage=document.querySelector('#image-viewer-image'),viewerViewport=document.querySelector('#image-viewer-viewport');
+  const zoomOut=document.querySelector('#image-zoom-out'),zoomIn=document.querySelector('#image-zoom-in'),zoomReset=document.querySelector('#image-zoom-reset'),zoomLevel=document.querySelector('#image-zoom-level');
+  let imageScale=1,fitScale=1;
+  function setImageScale(scale,resetScroll=false){
+    imageScale=Math.min(4,Math.max(.1,scale));
+    viewerImage.style.width=Math.round(viewerImage.naturalWidth*imageScale)+'px';
+    zoomLevel.textContent=Math.round(imageScale*100)+'%';
+    zoomOut.disabled=imageScale<=.1;zoomIn.disabled=imageScale>=4;
+    if(resetScroll){viewerViewport.scrollTop=0;viewerViewport.scrollLeft=0}
+  }
+  function fitImage(){
+    if(!viewerImage.naturalWidth)return;
+    const padding=32;
+    fitScale=Math.min((viewerViewport.clientWidth-padding)/viewerImage.naturalWidth,(viewerViewport.clientHeight-padding)/viewerImage.naturalHeight,1);
+    setImageScale(fitScale,true);
+  }
+  viewerImage.addEventListener('load',fitImage);
+  zoomOut.addEventListener('click',()=>setImageScale(imageScale/1.25));
+  zoomIn.addEventListener('click',()=>setImageScale(imageScale*1.25));
+  zoomReset.addEventListener('click',fitImage);
+  addEventListener('resize',()=>{if(imageViewer.open)fitImage()});
+  document.querySelector('#image-open').addEventListener('click',()=>{
+    viewerImage.src=preview.currentSrc||preview.src;viewerImage.alt=preview.alt;
+    imageViewer.showModal();requestAnimationFrame(fitImage);
+  });
+  imageViewer.querySelector('.image-viewer-close').addEventListener('click',()=>imageViewer.close());
+  imageViewer.addEventListener('click',event=>{if(event.target===imageViewer)imageViewer.close()});
   const rotate=document.querySelector('.orientation-toggle');let flipped=false;
   try{flipped=sessionStorage.getItem('card-flipped')==='true'}catch{}
   const orient=()=>{root.style.setProperty('--flip',flipped?'180deg':'0deg');rotate.setAttribute('aria-pressed',String(flipped))};

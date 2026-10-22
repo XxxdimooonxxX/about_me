@@ -285,3 +285,21 @@ h3 { color:#25656d; }
   .scene-controls button{min-width:0;font-size:8px;gap:6px;padding:7px;min-height:38px;}.scene-controls button svg{width:16px;height:16px;flex-basis:16px;}.scene-controls .orientation-toggle{min-width:54px;}
 }
 @media(prefers-reduced-motion:reduce){.flip-grid{display:none;}.is-flipping>.panel{visibility:visible;}.panel-enter{animation:none!important;}}
+.image-open { position:absolute;z-index:1;top:17px;right:17px;display:flex;align-items:center;gap:7px;padding:8px 10px;border:1px solid #d9e9dfaa;background:#142c30e8;color:#e8f2e9;font:9px/1 "Consolas",monospace;letter-spacing:.5px;box-shadow:0 2px 8px #0005;transition:background .2s ease,color .2s ease,border-color .2s ease; }
+.image-open:hover { background:#d5d9ce;color:#193337;border-color:#d5d9ce; }
+.image-open svg { width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6; }
+.image-viewer { position:fixed;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:58px 20px 20px;border:0;background:transparent;overflow:hidden;grid-template-rows:40px minmax(0,1fr);gap:10px; }
+.image-viewer[open] { display:grid; }
+.image-viewer::backdrop { background:#061113d9;backdrop-filter:blur(4px); }
+.image-viewer-tools { display:flex;justify-self:center;align-items:center;gap:6px;padding:4px;border:1px solid #e2e4d855;background:#142c30ee;color:#e8f2e9;box-shadow:0 2px 10px #0008; }
+.image-viewer-tools button { min-width:36px;height:32px;padding:0 9px;border:1px solid #d9e9df66;background:transparent;color:inherit;font:16px/1 "Consolas",monospace; }
+.image-viewer-tools button:hover:not(:disabled) { background:#d5d9ce;color:#193337; }
+.image-viewer-tools button:disabled { opacity:.4;cursor:default; }
+.image-viewer-tools #image-zoom-reset { min-width:82px;font:10px "Consolas",monospace; }
+.image-viewer-tools span { min-width:42px;text-align:center;font:10px "Consolas",monospace;font-variant-numeric:tabular-nums; }
+.image-viewer-viewport { min-width:0;min-height:0;overflow:auto;overscroll-behavior:contain;touch-action:pan-x pan-y;display:flex;scrollbar-color:#9aa9a4 #142c30;scrollbar-width:thin; }
+.image-viewer img { display:block;flex:none;width:auto;height:auto;max-width:none;max-height:none;margin:auto;border:1px solid #d5d9ce;box-shadow:0 18px 70px #000b; }
+.image-viewer-close { position:absolute;z-index:1;top:12px;right:16px;display:grid;place-items:center;width:38px;height:38px;border:1px solid #e2e4d8;background:#1a2b2e;color:#e2e4d8;font:30px/1 "Trebuchet MS",sans-serif;box-shadow:0 2px 10px #0008; }
+.image-viewer-close:hover { background:#d5d9ce;color:#193337; }
+@media(max-width:600px) { .image-open { top:13px;right:13px;padding:7px; }.image-open span { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }.image-viewer { padding:58px 10px 10px; }.image-viewer-close { top:10px;right:10px;width:34px;height:34px; }.image-viewer-viewport { scrollbar-width:auto; } }
+@media(prefers-reduced-motion:reduce) { .image-open { transition:none; } }
